@@ -29,3 +29,6 @@
 
 ## アニメーション
 `src/assets/main.js` / `style.css`。OSの「視差効果を減らす」設定の人には自動で無効(`.anim` が付かない)。写真の流れる帯には停止ボタンあり。
+
+## ロゴ・ファビコン
+元画像は `design/`(`logo-sheet.webp`=ロゴ一覧、`favicon-icon.webp`=ファビコン用)。差し替えるときは、画像を置き換えて `python tools/prep_logo.py`(Pillow が必要)を実行し、`node build.mjs`。横組み・縦組みロゴ、ファビコン各種、SNS共有画像(`og.png`)が再生成される。

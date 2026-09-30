@@ -12,9 +12,13 @@
 <meta property="og:site_name" content="{{fullName}}">
 <meta property="og:title" content="@@TITLE@@">
 <meta property="og:description" content="@@DESC@@">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
+@@OGIMAGE@@
 @@CANONICAL@@
-<link rel="icon" href="{{base}}assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="{{base}}assets/favicon.ico" sizes="48x48">
+<link rel="icon" href="{{base}}assets/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="{{base}}assets/icon-192.png" type="image/png" sizes="192x192">
+<link rel="apple-touch-icon" href="{{base}}assets/apple-touch-icon.png">
 <link rel="stylesheet" href="{{base}}assets/style.css">
 <script>document.documentElement.classList.add('js');try{var s=localStorage.getItem('ym-size');if(s)document.documentElement.dataset.size=s}catch(e){}</script>
 @@LD@@
@@ -24,8 +28,7 @@
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="{{base}}" aria-label="{{fullName}} ホーム">
-      <svg class="brand-mark" width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="17" r="17" fill="#2f6b5e"/><path d="M6 25c6 0 5-9 11-9s5-6 11-6" fill="none" stroke="#fbf8f2" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="0.1 4.6"/><circle cx="26.5" cy="10" r="2.6" fill="#f2b45b"/></svg>
-      <span class="brand-text"><span class="brand-name">よりみち</span><span class="brand-sub">就労移行支援事業所</span></span>
+      <img class="brand-logo" src="{{base}}assets/img/logo-h.webp" width="900" height="339" alt="よりみち 就労移行支援事業所" fetchpriority="high">
     </a>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnav"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span>メニュー</span></button>
     <nav id="gnav" class="gnav" aria-label="メインメニュー">
@@ -40,6 +43,7 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div>
+      <img class="footer-logo" src="{{base}}assets/img/logo-v.webp" width="316" height="332" alt="" loading="lazy">
       <p class="footer-brand">{{fullName}}</p>
       <p class="footer-status">{{status}}</p>
       <p class="footer-note">所在地・開所日などは決まり次第掲載します。掲載している制度の情報は{{lastChecked}}時点の公的情報をもとにしています。</p>

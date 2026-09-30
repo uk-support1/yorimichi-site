@@ -25,6 +25,9 @@ p{margin:0 0 1.2em;text-wrap:pretty}
 .site-header{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.6rem 0}
 .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--ink)}
+.brand-logo{display:block;height:3.4rem;width:auto}
+.footer-logo{display:block;width:5.5rem;height:auto;background:#fff;border-radius:16px;padding:.5rem;margin-bottom:1rem}
+@media (max-width:40rem){.brand-logo{height:2.8rem}}
 .brand-text{display:flex;flex-direction:column;line-height:1.3}
 .brand-name{font-weight:700;font-size:1.25rem;letter-spacing:.08em}
 .brand-sub{font-size:.7rem;color:var(--ink-soft)}

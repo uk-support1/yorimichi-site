@@ -18,6 +18,11 @@ const get = (path) => path.split('.').reduce((o, k) => (o == null ? o : o[k]), s
 const jsonLd = (o) => `<script type="application/ld+json">${JSON.stringify(o).replace(/</g, '\\u003c')}</script>`;
 const abs = (slug) => (site.siteUrl ? site.siteUrl.replace(/\/$/, '') + base + slug : null);
 
+// SNS共有用の画像(絶対URLが必要なので siteUrl 設定時のみ)
+const ogImage = site.siteUrl
+  ? `<meta property="og:image" content="${abs('assets/og.png')}">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">`
+  : '';
+
 const nav = [
   ['about', '考え方'],
   ['support', '5つの道しるべ'],
@@ -119,7 +124,7 @@ for (const f of pages) {
   const ld = [];
   ld.push({
     '@context': 'https://schema.org', '@type': 'Organization', name: site.fullName, alternateName: site.name,
-    description: site.description, ...(site.siteUrl ? { url: site.siteUrl } : {}),
+    description: site.description, ...(site.siteUrl ? { url: site.siteUrl, logo: abs('assets/icon-512.png') } : {}),
   });
   if (!isHome && canonical) {
     ld.push({
@@ -144,7 +149,8 @@ for (const f of pages) {
   const html = fill(layout)
     .replaceAll('@@TITLE@@', esc(title))
     .replaceAll('@@DESC@@', esc(meta.description || site.description))
-    .replace('@@CANONICAL@@', canonical ? `<link rel="canonical" href="${canonical}">\n<meta property="og:url" content="${canonical}">` : '')
+    .replace('@@OGIMAGE@@', ogImage)
+    .replace('@@CANONICAL@@', canonical ?`<link rel="canonical" href="${canonical}">\n<meta property="og:url" content="${canonical}">` : '')
     .replace('@@LD@@', ld.map(jsonLd).join('\n'))
     .replace('@@NAV@@', navHtml)
     .replace('@@CRUMB@@', crumb)
@@ -161,7 +167,7 @@ for (const f of pages) {
 const nf = fill(layout)
   .replaceAll('@@TITLE@@', `ページが見つかりません|${esc(site.fullName)}`)
   .replaceAll('@@DESC@@', 'ページが見つかりません')
-  .replace('@@CANONICAL@@', '').replace('@@LD@@', '').replace('@@NAV@@', nav.map(([s, l]) => `<li><a href="${base}${s}/">${l}</a></li>`).join(''))
+  .replace('@@OGIMAGE@@', ogImage).replace('@@CANONICAL@@', '').replace('@@LD@@', '').replace('@@NAV@@', nav.map(([s, l]) => `<li><a href="${base}${s}/">${l}</a></li>`).join(''))
   .replace('@@CRUMB@@', '').replace('@@BODYCLASS@@', 'sub').replace('@@ROBOTS@@', '<meta name="robots" content="noindex">')
   .replace('@@MAIN@@', () => `<div class="page-head"><div class="wrap"><h1>ページが見つかりませんでした</h1></div></div><div class="wrap prose section"><p>お探しのページは、移動したか、まだ準備中かもしれません。</p><p><a class="btn" href="${base}">ホームにもどる</a></p></div>`);
 writeFileSync(join(dist, '404.html'), nf);
