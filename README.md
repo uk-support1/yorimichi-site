@@ -32,3 +32,6 @@
 
 ## ロゴ・ファビコン
 元画像は `design/`(`logo-sheet.webp`=ロゴ一覧、`favicon-icon.webp`=ファビコン用)。差し替えるときは、画像を置き換えて `python tools/prep_logo.py`(Pillow が必要)を実行し、`node build.mjs`。横組み・縦組みロゴ、ファビコン各種、SNS共有画像(`og.png`)が再生成される。
+
+## ローカルで見る
+`preview.bat` をダブルクリック(ビルド→サーバー起動→ブラウザが開く)。または `node build.mjs && node preview.mjs` を実行し、http://localhost:8080/yorimichi-site/ を開く。`docs/index.html` を直接開くと、公開URL用のパスのため正しく表示されない。
