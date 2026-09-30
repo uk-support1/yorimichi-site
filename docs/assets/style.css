@@ -34,7 +34,7 @@ p{margin:0 0 1.2em;text-wrap:pretty}
 .gnav a[aria-current="page"]{background:var(--green);color:#fff}
 .menu-btn{display:none;font:inherit;font-size:.9rem;background:none;border:1.5px solid var(--green);color:var(--green-deep);border-radius:999px;padding:.4rem 1rem;cursor:pointer}
 @media (max-width:62rem){
-  .js .menu-btn{display:block}
+  .js .menu-btn{display:inline-flex}
   .js .gnav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--line);padding:.5rem 1rem 1rem}
   .js .gnav.open{display:block}
   .gnav ul{flex-direction:column}
@@ -154,3 +154,79 @@ details p{padding:0 1.2rem;margin:0 0 1.1rem}
 .size-ctl button{font:inherit;background:transparent;color:#fff;border:1.5px solid #9fc0b6;border-radius:999px;padding:.15rem .9rem;cursor:pointer}
 .size-ctl button[aria-pressed="true"]{background:#fff;color:var(--green-deep);border-color:#fff}
 .copy{margin-top:2rem;font-size:.8rem;opacity:.75;margin-bottom:0}
+
+/* ===== 写真 ===== */
+.photo{position:relative;margin:1.8rem 0;border-radius:20px;overflow:hidden;background:var(--sand)}
+.photo img{display:block;width:100%;height:auto}
+.photo figcaption{position:absolute;right:.6rem;bottom:.5rem;font-size:.7rem;line-height:1.7;color:#fff;background:rgba(20,40,35,.55);padding:0 .7em;border-radius:999px}
+.photo.crop-h img{aspect-ratio:3/2;object-fit:cover;object-position:center 45%}
+.photo-wide{max-width:44rem}
+.path .photo{max-width:36rem;margin:1.2rem 0 0}
+.photo-row{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.photo-row .photo{margin:0}
+.photo-row .photo img{aspect-ratio:4/3;object-fit:cover}
+.hero-art{position:relative}
+.hero-photo{margin:0;border-radius:46% 54% 44% 56% / 38% 42% 58% 62%;box-shadow:0 20px 50px rgba(31,77,67,.18)}
+.hero-photo img{aspect-ratio:4/5;object-fit:cover;object-position:center 62%}
+.hero-photo figcaption{right:22%}
+.hero-trail{position:absolute;left:-1.6rem;bottom:-1.2rem;width:34%;pointer-events:none}
+@media (max-width:52rem){.hero-photo img{aspect-ratio:1/1}}
+
+/* 写真バンド(パララックス) */
+.band{position:relative;overflow:hidden;min-height:clamp(18rem,42vw,28rem);display:grid;place-items:center;color:#fff;isolation:isolate}
+.band-bg{position:absolute;inset:-14% 0;z-index:-2;will-change:transform}
+.band-bg img{width:100%;height:100%;object-fit:cover;display:block}
+.band::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,50,44,.5),rgba(20,50,44,.62))}
+.band-quote{font-size:clamp(1.6rem,4.8vw,3rem);font-weight:700;line-height:1.6;letter-spacing:.08em;margin:0;text-align:center;text-shadow:0 2px 16px rgba(0,0,0,.35)}
+.band-cap{position:absolute;right:1rem;bottom:.6rem;font-size:.7rem;margin:0;opacity:.85}
+.band-inner{position:relative}
+
+/* 写真の帯(マーキー) */
+.marquee-sec{padding-bottom:2.5rem;overflow:hidden}
+.marquee{margin:1.6rem 0 1rem;overflow-x:auto;scrollbar-width:thin}
+.marquee-track{display:flex;gap:1rem;list-style:none;padding:0 1rem;margin:0;width:max-content}
+.marquee-track li{width:clamp(14rem,26vw,21rem);flex:none}
+.marquee .photo{margin:0}
+.marquee .photo img{aspect-ratio:4/3;object-fit:cover}
+.anim .marquee{overflow:hidden}
+.anim .marquee-track{animation:marq 70s linear infinite}
+.anim .marquee:hover .marquee-track,.marquee.paused .marquee-track{animation-play-state:paused}
+@keyframes marq{to{transform:translateX(-50%)}}
+.marquee-btn{display:none;font:inherit;font-size:.85rem;background:#fff;border:1.5px solid var(--green);color:var(--green-deep);border-radius:999px;padding:.25rem 1.1rem;cursor:pointer;margin-bottom:.6rem}
+.anim .marquee-btn{display:inline-block}
+
+/* ===== アニメーション(JSが「動きOK」と判断したときだけ有効) ===== */
+.anim .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease;transition-delay:var(--d,0s)}
+.anim .reveal.in{opacity:1;transform:none}
+.anim .photo:not(.m){clip-path:inset(0 0 100% 0 round 20px);transition:clip-path 1.1s cubic-bezier(.2,.7,.2,1)}
+.anim .photo:not(.m) img{transform:scale(1.12);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.anim .photo.in:not(.m){clip-path:inset(0 0 0 0 round 20px)}
+.anim .photo.in:not(.m) img{transform:none}
+.anim .hero-photo:not(.m){clip-path:none}
+.anim .split-text .ch{display:inline-block;opacity:0;transform:translateY(.5em);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--i) * 55ms + .15s)}
+@keyframes rise{to{opacity:1;transform:none}}
+.anim .path::before{clip-path:inset(0 0 calc((1 - var(--p,0)) * 100%) 0)}
+.anim .path>li::before{transform:scale(.55);opacity:.35;transition:transform .6s cubic-bezier(.3,1.6,.5,1),opacity .6s}
+.anim .path>li.in::before{transform:none;opacity:1}
+.anim .path>li>*{opacity:0;transform:translateX(-12px);transition:opacity .7s ease .1s,transform .7s ease .1s}
+.anim .path>li.in>*{opacity:1;transform:none}
+
+/* 波(ヒーローの下端) */
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3rem;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 60' preserveAspectRatio='none'%3E%3Cpath d='M0 34Q180 4 360 34T720 34T1080 34T1440 34V60H0z' fill='%23fbf8f2'/%3E%3C/svg%3E") repeat-x 0 0/1440px 100%;pointer-events:none}
+.anim .hero::after{animation:wave 40s linear infinite}
+@keyframes wave{to{background-position-x:-1440px}}
+
+/* ハンバーガー変形・矢印ホバー */
+.menu-btn{align-items:center;gap:.6rem}
+.bars{position:relative;width:1.2rem;height:.9rem;display:inline-block}
+.bars i{position:absolute;left:0;right:0;height:2px;background:currentColor;border-radius:2px;transition:transform .3s,opacity .2s,top .3s}
+.bars i:nth-child(1){top:0}.bars i:nth-child(2){top:calc(50% - 1px)}.bars i:nth-child(3){top:calc(100% - 2px)}
+.menu-btn[aria-expanded="true"] .bars i:nth-child(1){top:calc(50% - 1px);transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] .bars i:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] .bars i:nth-child(3){top:calc(50% - 1px);transform:rotate(-45deg)}
+.btn::after{content:"→";display:inline-block;margin-left:.5em;transition:transform .25s}
+.btn:hover::after{transform:translateX(5px)}
+.card .more::after{display:inline-block;transition:transform .25s}
+.card:hover .more::after{transform:translateX(5px)}
+.pledge li{transition:transform .25s,box-shadow .25s}
+.pledge li:hover{transform:translateX(6px);box-shadow:0 6px 18px rgba(35,48,44,.08)}

@@ -7,7 +7,7 @@ description: 就労移行支援事業所「よりみち」(開設準備中)。�
   <div class="wrap hero-grid">
     <div>
       <span class="badge">{{status}}</span>
-      <h1>寄り道の時間は、<br><em>自分を思い出す</em>時間。</h1>
+      <h1 class="split-text">寄り道の時間は、<br><em>自分を思い出す</em>時間。</h1>
       <p class="lead">休職、離職、ブランク、思うようにいかなかった働き方。その経験は、失敗ではなく、これからの働き方を自分で選ぶための材料です。就労移行支援事業所「よりみち」は、その時間に一緒に立ち会う場所をつくっています。</p>
       <div class="btn-row">
         <a class="btn" href="{{base}}about/">よりみちの考え方を読む</a>
@@ -15,16 +15,9 @@ description: 就労移行支援事業所「よりみち」(開設準備中)。�
       </div>
       <p class="note-small" style="margin-top:1.2rem">見学や相談の受付は、準備が整い次第お知らせします。</p>
     </div>
-    <div class="hero-art" aria-hidden="true">
-      <svg viewBox="0 0 400 360" role="presentation">
-        <path d="M30 320C120 320 90 230 180 220S300 250 320 170 250 60 350 40" fill="none" stroke="#2f6b5e" stroke-width="5" stroke-linecap="round" stroke-dasharray="0.1 16"/>
-        <circle cx="30" cy="320" r="11" fill="#2f6b5e"/>
-        <circle cx="180" cy="220" r="9" fill="#2f6b5e" opacity=".7"/>
-        <circle cx="318" cy="172" r="9" fill="#2f6b5e" opacity=".7"/>
-        <circle cx="350" cy="40" r="20" fill="#f2b45b"/>
-        <path d="M70 120q30-40 60 0t60 0" fill="none" stroke="#2f6b5e" stroke-opacity=".25" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="90" cy="290" r="26" fill="#e5eee9"/><circle cx="270" cy="300" r="18" fill="#f2eadb"/><circle cx="230" cy="110" r="14" fill="#e5eee9"/>
-      </svg>
+    <div class="hero-art">
+      {{img:hero:hero-photo:eager}}
+      <svg class="hero-trail" viewBox="0 0 120 120" aria-hidden="true"><circle cx="16" cy="104" r="7" fill="#f2b45b"/><path d="M16 104C40 100 20 70 50 62s10-40 54-46" fill="none" stroke="#2f6b5e" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.1 8"/></svg>
     </div>
   </div>
 </section>
@@ -34,11 +27,16 @@ description: 就労移行支援事業所「よりみち」(開設準備中)。�
     <span class="eyebrow">「よりみち」という名前</span>
     <h2 class="h2">遠回りは、迷子ではありません。</h2>
     <div class="grid c3">
-      <div class="card"><h3>経験は、材料になる</h3><p>うまくいかなかった職場、休んだ時間、家で過ごした日々。そこには「自分に合うこと・合わないこと」の手がかりが詰まっています。</p></div>
-      <div class="card"><h3>正解は、支援者が決めない</h3><p>進路も働き方も、決めるのはあなたです。私たちは選択肢を増やし、あなたと環境の間を調整する役割を担います。</p></div>
-      <div class="card"><h3>就職だけがゴールではない</h3><p>自分に合う働き方を知り、必要な助けを求められること。それが、働き続けるための土台になると考えています。</p></div>
+      <div class="card reveal"><h3>経験は、材料になる</h3><p>うまくいかなかった職場、休んだ時間、家で過ごした日々。そこには「自分に合うこと・合わないこと」の手がかりが詰まっています。</p></div>
+      <div class="card reveal" style="--d:.1s"><h3>正解は、支援者が決めない</h3><p>進路も働き方も、決めるのはあなたです。私たちは選択肢を増やし、あなたと環境の間を調整する役割を担います。</p></div>
+      <div class="card reveal" style="--d:.2s"><h3>就職だけがゴールではない</h3><p>自分に合う働き方を知り、必要な助けを求められること。それが、働き続けるための土台になると考えています。</p></div>
     </div>
   </div>
+</section>
+
+<section class="band" aria-label="よりみちのことば">
+  <div class="band-bg" data-parallax><img src="{{base}}assets/img/path-1400.webp" srcset="{{base}}assets/img/path-700.webp 700w, {{base}}assets/img/path-1400.webp 1400w" sizes="100vw" width="1400" height="933" alt="" loading="lazy" decoding="async"></div>
+  <div class="band-inner wrap"><p class="band-quote reveal">寄り道の先に、<br>自分で選んだ道がある。</p><p class="band-cap">イメージ写真</p></div>
 </section>
 
 <section class="section tint">
@@ -48,9 +46,12 @@ description: 就労移行支援事業所「よりみち」(開設準備中)。�
       <h2 class="h2">小さな「できた」を、ちゃんと数える。</h2>
       <p class="lead" style="max-width:none">「自分にもできる」という感覚は、大きな成功より、日々の小さな経験から育つと私たちは考えています。よりみちでは、こんなことも「できた」として大切にします。</p>
     </div>
-    <ul class="chips" style="margin-top:0">
-      <li>自分で選べた</li><li>やってみた</li><li>工夫できた</li><li>休憩を選べた</li><li>相談できた</li><li>助けを求められた</li><li>人の役に立てた</li><li>やめると決めた</li>
-    </ul>
+    <div>
+      {{img:notes:photo-wide}}
+      <ul class="chips">
+        <li>自分で選べた</li><li>やってみた</li><li>工夫できた</li><li>休憩を選べた</li><li>相談できた</li><li>助けを求められた</li><li>人の役に立てた</li><li>やめると決めた</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -59,7 +60,7 @@ description: 就労移行支援事業所「よりみち」(開設準備中)。�
     <span class="eyebrow">5つの道しるべ</span>
     <h2 class="h2">順番は決めません。行き来しながら進みます。</h2>
     <p class="lead">よりみちの支援は、次の5つの道しるべでできています。固定の順番や期間はありません。体調や気持ちに合わせて、戻ってもいいし、立ち止まってもいい。</p>
-    <ol class="path">
+    <ol class="path" data-path>
       <li><h3>安心と自己理解</h3><p>安心できる場と関係をつくり、自分の状態・特性・強み・大切にしたいことを知っていく。</p></li>
       <li><h3>小さな一歩</h3><p>自分で選んだ小さな行動を試し、「やってみた」「できた」を積み重ねる。</p></li>
       <li><h3>役割と実践</h3><p>模擬就労や役割の経験を通して、工夫や学びを手に入れる。</p></li>
@@ -70,11 +71,21 @@ description: 就労移行支援事業所「よりみち」(開設準備中)。�
   </div>
 </section>
 
+<section class="section marquee-sec" aria-label="イメージ写真">
+  <div class="wrap"><span class="eyebrow">試して、確かめて、選ぶ</span><h2 class="h2">日々は、こんな時間でできています。</h2></div>
+  <div class="marquee" data-marquee>
+    <ul class="marquee-track">
+      <li>{{img:desk:m}}</li><li>{{img:sprout:m}}</li><li>{{img:work:m}}</li><li>{{img:talk:m}}</li><li>{{img:notes:m}}</li><li>{{img:team:m}}</li>
+    </ul>
+  </div>
+  <div class="wrap"><button class="marquee-btn" type="button" aria-pressed="false">動きを止める</button><p class="note-small">写真はすべてイメージです。実際の事業所・利用者・職員ではありません。</p></div>
+</section>
+
 <section class="section sand">
   <div class="wrap">
     <span class="eyebrow">私たちがしないこと</span>
     <h2 class="h2">お約束していること、できないこと。</h2>
-    <ul class="pledge">
+    <ul class="pledge reveal-list">
       <li><strong>進路を代わりに決めません</strong>あなたの希望を起点に、一緒に整理します。</li>
       <li><strong>結果は保証しません</strong>就職や定着を約束することはできません。約束するのは、力を尽くして伴走することです。</li>
       <li><strong>体調の波を、努力不足にしません</strong>調子が悪い日は失敗ではなく、調整のヒントです。</li>

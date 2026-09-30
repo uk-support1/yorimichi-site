@@ -8,6 +8,7 @@ const dist = join(root, 'docs');
 const site = JSON.parse(readFileSync(join(root, 'content/site.json'), 'utf8'));
 const news = JSON.parse(readFileSync(join(root, 'content/news.json'), 'utf8'));
 const faq = JSON.parse(readFileSync(join(root, 'content/faq.json'), 'utf8'));
+const photos = JSON.parse(readFileSync(join(root, 'content/photos.json'), 'utf8'));
 const layout = readFileSync(join(root, 'src/layout.html'), 'utf8');
 
 const base = site.basePath.endsWith('/') ? site.basePath : site.basePath + '/';
@@ -68,9 +69,22 @@ function renderContact() {
   return `<ul class="contact-list">${li.join('')}</ul>`;
 }
 
-const blocks = { news: renderNews, 'news-latest': renderNewsLatest, facts: renderFacts, faq: renderFaq, contact: renderContact };
+// {{img:キー}} / {{img:キー:追加クラス}} / {{img:キー:追加クラス:eager}}
+function renderImg(key, cls = '', eager = '') {
+  const p = photos[key];
+  if (!p) throw new Error('未定義の写真: ' + key);
+  const a = `${base}assets/img/${key}`;
+  const load = eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"';
+  return `<figure class="photo ${cls}"><img src="${a}-${p.w}.webp" srcset="${a}-${p.small}.webp ${p.small}w, ${a}-${p.w}.webp ${p.w}w" sizes="(max-width: 52rem) 100vw, 50vw" width="${p.w}" height="${p.h}" alt="${esc(p.alt)}" ${load}><figcaption>イメージ写真</figcaption></figure>`;
+}
+function renderCredits() {
+  return `<ul class="src">${Object.values(photos).map((p) => `<li>${esc(p.alt)}:<a href="${p.url}">${esc(p.credit)}</a>(Unsplash)</li>`).join('')}</ul>`;
+}
+
+const blocks = { credits: renderCredits, news: renderNews, 'news-latest': renderNewsLatest, facts: renderFacts, faq: renderFaq, contact: renderContact };
 
 function parsePage(src) {
+  src = src.replace(/\r\n/g, '\n'); // Windows の改行(CRLF)でも動くように
   const m = src.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
   if (!m) throw new Error('front matter がありません');
   const meta = {};
@@ -83,6 +97,7 @@ function parsePage(src) {
 
 function fill(str) {
   return str
+    .replace(/\{\{img:(\w+)(?::([\w -]*))?(?::(eager))?\}\}/g, (_, k, c, e) => renderImg(k, c, e))
     .replace(/<!--@(\S+?)-->/g, (_, k) => (blocks[k] ? blocks[k]() : `<!-- unknown block ${k} -->`))
     .replace(/\{\{\?([\w.]+)\}\}/g, (_, p) => { const v = get(p); return v ? esc(v) : pending; })
     .replace(/\{\{base\}\}/g, base)
@@ -151,6 +166,7 @@ const nf = fill(layout)
   .replace('@@MAIN@@', () => `<div class="page-head"><div class="wrap"><h1>ページが見つかりませんでした</h1></div></div><div class="wrap prose section"><p>お探しのページは、移動したか、まだ準備中かもしれません。</p><p><a class="btn" href="${base}">ホームにもどる</a></p></div>`);
 writeFileSync(join(dist, '404.html'), nf);
 
+writeFileSync(join(dist, '.nojekyll'), '');
 writeFileSync(join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n${site.siteUrl ? `Sitemap: ${site.siteUrl.replace(/\/$/, '')}${base}sitemap.xml\n` : ''}`);
 if (site.siteUrl) {
   const today = new Date().toISOString().slice(0, 10);

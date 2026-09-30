@@ -1,0 +1,82 @@
+{
+  "hero": {
+    "w": 1000,
+    "h": 1500,
+    "small": 500,
+    "alt": "丘の上へ続く細い道を、ひとりの人が歩いている風景",
+    "credit": "llxvisuals",
+    "url": "https://unsplash.com/photos/7QSnX_F3ziY"
+  },
+  "path": {
+    "w": 1400,
+    "h": 933,
+    "small": 700,
+    "alt": "緑の丘の向こうに海が見える、遠くへ続く小道",
+    "credit": "Paws and Prints",
+    "url": "https://unsplash.com/photos/Rgr_UPw7lIA"
+  },
+  "notes": {
+    "w": 1400,
+    "h": 2100,
+    "small": 700,
+    "alt": "木の机でノートに手書きしている手元",
+    "credit": "Priscilla Du Preez",
+    "url": "https://unsplash.com/photos/ZDDF6LMvh2s"
+  },
+  "desk": {
+    "w": 1400,
+    "h": 2100,
+    "small": 700,
+    "alt": "大きな窓と植物のある、明るく落ち着いた机まわり",
+    "credit": "ergonofis",
+    "url": "https://unsplash.com/photos/tdnYk4qOGhc"
+  },
+  "sprout": {
+    "w": 1400,
+    "h": 802,
+    "small": 700,
+    "alt": "両手のひらに乗せた土と、小さな若葉",
+    "credit": "Noah Buscher",
+    "url": "https://unsplash.com/photos/x8ZStukS2PM"
+  },
+  "hands": {
+    "w": 1400,
+    "h": 2100,
+    "small": 700,
+    "alt": "土から芽を出した小さな苗を、両手で包んでいる様子",
+    "credit": "Jennifer Delmarre",
+    "url": "https://unsplash.com/photos/9gUVNzHKBG4"
+  },
+  "work": {
+    "w": 1400,
+    "h": 903,
+    "small": 700,
+    "alt": "ノートパソコンで作業する手元と、机の上のカメラ",
+    "credit": "Alexander Polous",
+    "url": "https://unsplash.com/photos/e9OVhamF4PI"
+  },
+  "team": {
+    "w": 1400,
+    "h": 788,
+    "small": 700,
+    "alt": "ひとつの画面を囲んで、和やかに話し合う人たち",
+    "credit": "Vitaly Gariev",
+    "url": "https://unsplash.com/photos/yd_RKGH_RH4"
+  },
+  "talk": {
+    "w": 1400,
+    "h": 788,
+    "small": 700,
+    "alt": "パソコンを見ながら、それぞれの考えを伝え合う人たち",
+    "credit": "Vitaly Gariev",
+    "url": "https://unsplash.com/photos/UikYLDQj9_I"
+  },
+  "trail": {
+    "w": 1400,
+    "h": 2100,
+    "small": 700,
+    "alt": "緑の茂みの間を抜けていく細い小道",
+    "credit": "Jakub Klucký",
+    "url": "https://unsplash.com/photos/wnGKjQ49pOE"
+  }
+}
