@@ -4,8 +4,8 @@
   "fullName": "就労移行支援事業所「よりみち」",
   "tagline": "寄り道の時間は、自分を思い出す時間。",
   "description": "就労移行支援事業所「よりみち」(開設準備中)。遠回りの経験を、自分を知り直し、自分に合う働き方を自分で選ぶ時間に。本人の主体性と「自分にもできる」という感覚を大切にする事業所です。",
-  "siteUrl": null,
-  "basePath": "/",
+  "siteUrl": "https://uk-support1.github.io",
+  "basePath": "/yorimichi-site/",
   "status": "開設準備中",
   "lastChecked": "2026年9月30日",
   "contact": {

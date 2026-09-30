@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://uk-support1.github.io/yorimichi-site/sitemap.xml

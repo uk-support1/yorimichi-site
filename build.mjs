@@ -4,7 +4,7 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = dirname(fileURLToPath(import.meta.url));
-const dist = join(root, 'dist');
+const dist = join(root, 'docs');
 const site = JSON.parse(readFileSync(join(root, 'content/site.json'), 'utf8'));
 const news = JSON.parse(readFileSync(join(root, 'content/news.json'), 'utf8'));
 const faq = JSON.parse(readFileSync(join(root, 'content/faq.json'), 'utf8'));
@@ -156,4 +156,4 @@ if (site.siteUrl) {
   const today = new Date().toISOString().slice(0, 10);
   writeFileSync(join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${built.map((s) => `<url><loc>${abs(s)}</loc><lastmod>${today}</lastmod></url>`).join('\n')}\n</urlset>\n`);
 }
-console.log(`built ${built.length} pages -> dist/`);
+console.log(`built ${built.length} pages -> docs/`);
