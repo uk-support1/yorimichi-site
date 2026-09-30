@@ -15,7 +15,7 @@ createServer(async (req, res) => {
   if (!p.startsWith(base)) { res.writeHead(404); return res.end('not found'); }
   p = normalize(p.slice(base.length));
   if (p.startsWith('..')) { res.writeHead(403); return res.end(); }
-  if (p === '' || p.endsWith('\') || p.endsWith('/')) p = join(p, 'index.html');
+  if (p === '' || p === '.' || p.endsWith('\\') || p.endsWith('/')) p = join(p, 'index.html');
   try {
     const data = await readFile(join(docs, p));
     res.writeHead(200, { 'Content-Type': types[extname(p)] || 'application/octet-stream' });
