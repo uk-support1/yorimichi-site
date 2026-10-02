@@ -2,7 +2,7 @@
   var html = document.documentElement;
   var $ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 
-  /* メニュー */
+  /* ---------- メニュー ---------- */
   var btn = document.querySelector('.menu-btn');
   var nav = document.getElementById('gnav');
   if (btn && nav) {
@@ -20,7 +20,7 @@
     });
   }
 
-  /* 文字サイズ */
+  /* ---------- 文字サイズ ---------- */
   var sizeBtns = $('.size-ctl button');
   function mark(size) { sizeBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.size === size)); }); }
   mark(html.dataset.size || 'm');
@@ -32,9 +32,30 @@
     });
   });
 
-  /* ここから先は動き。「視差効果を減らす」設定の人には一切かけない */
+  /* ---------- 動きの ON/OFF ---------- */
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduce || !('IntersectionObserver' in window)) return;
+  var mbtn = document.querySelector('.motion-btn');
+  var startedOff = html.dataset.motion === 'off';
+  function paintMotion() {
+    var off = html.dataset.motion === 'off';
+    if (!mbtn) return;
+    mbtn.setAttribute('aria-pressed', String(off));
+    mbtn.textContent = off ? '動き:切' : '動き:入';
+  }
+  if (mbtn) {
+    if (reduce) { mbtn.hidden = true; }
+    paintMotion();
+    mbtn.addEventListener('click', function () {
+      var off = html.dataset.motion !== 'off';
+      if (off) html.dataset.motion = 'off'; else html.removeAttribute('data-motion');
+      try { localStorage.setItem('ym-motion', off ? 'off' : 'on'); } catch (e) {}
+      paintMotion();
+      if (!off && startedOff) location.reload(); /* 最初から切だった場合は、演出を読み込み直す */
+    });
+  }
+
+  /* ---------- ここから先は動き。OS設定または「切」の人には一切かけない ---------- */
+  if (reduce || startedOff || !('IntersectionObserver' in window)) return;
   html.classList.add('anim');
 
   /* 見出しの一文字ずつ表示(読み上げには元の文を使う) */
@@ -58,28 +79,26 @@
   });
 
   /* スクロールで現れる */
-  $('.reveal-list > li').forEach(function (li, i) { li.classList.add('reveal'); li.style.setProperty('--d', (i * 0.09) + 's'); });
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
-  $('.reveal, .photo:not(.m), .path > li').forEach(function (el) { io.observe(el); });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+  $('.reveal').forEach(function (el) { io.observe(el); });
 
-  /* 道しるべの線の伸び + パララックス */
-  var paths = $('[data-path]');
+  /* パララックス */
   var pars = $('[data-parallax]');
   var ticking = false;
   function frame() {
     ticking = false;
     var vh = window.innerHeight;
-    paths.forEach(function (p) {
-      var r = p.getBoundingClientRect();
-      var prog = (vh * 0.7 - r.top) / r.height;
-      p.style.setProperty('--p', Math.max(0, Math.min(1, prog)).toFixed(3));
+    /* IntersectionObserver の取りこぼし対策(表示領域に入ったものは必ず表示する) */
+    $('.reveal:not(.in)').forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (r.top < vh * 0.94 && r.bottom > 0) el.classList.add('in');
     });
     pars.forEach(function (el) {
       var r = el.parentNode.getBoundingClientRect();
       if (r.bottom < 0 || r.top > vh) return;
-      var off = (r.top + r.height / 2 - vh / 2) * -0.12;
+      var off = (r.top + r.height / 2 - vh / 2) * -0.14;
       el.style.transform = 'translate3d(0,' + off.toFixed(1) + 'px,0)';
     });
   }
@@ -87,22 +106,4 @@
   window.addEventListener('scroll', req, { passive: true });
   window.addEventListener('resize', req);
   frame();
-
-  /* 写真の流れる帯:複製して途切れなく。止めるボタン付き */
-  $('[data-marquee]').forEach(function (m) {
-    var track = m.querySelector('.marquee-track');
-    Array.prototype.slice.call(track.children).forEach(function (li) {
-      var c = li.cloneNode(true);
-      c.setAttribute('aria-hidden', 'true');
-      $('img', c).forEach(function (img) { img.alt = ''; });
-      $('figcaption', c).forEach(function (f) { f.remove(); });
-      track.appendChild(c);
-    });
-    var b = m.parentNode.querySelector('.marquee-btn');
-    if (b) b.addEventListener('click', function () {
-      var p = m.classList.toggle('paused');
-      b.setAttribute('aria-pressed', String(p));
-      b.textContent = p ? '動かす' : '動きを止める';
-    });
-  });
 })();

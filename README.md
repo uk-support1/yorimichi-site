@@ -23,12 +23,21 @@
 - OGP画像は未作成
 
 ## 写真の差し替え・追加
-1. 元画像(jpg)を用意し、`tools/prep_images.py` の `photos` に追記して `python tools/prep_images.py <元画像フォルダ>`(Pillow が必要)。webp 2サイズと `content/photos.json` が生成される。
-2. ページ内では `{{img:キー}}`(追加クラス: `{{img:キー:crop-h}}`)と書く。
+1. 元画像(jpg)を `design/photos-src/<ID>.jpg` に置き、`tools/prep_images.py` の `photos` に追記して `python tools/prep_images.py`(Pillow が必要)。webp 2サイズと `content/photos.json` が生成される。
+2. ページ内では `{{pic:キー}}`(画像のみ)、または `{{img:キー:追加クラス}}`(figure付き)と書く。
 3. 「イメージ写真」の表記と `credits/`(写真クレジット)は自動で出る。実際の写真に替えたら `figcaption` の文言を見直す。
 
+## デザインシステム
+`src/assets/style.css` の冒頭 `:root` に、色(ロゴ由来の Blue / Green / Coral / Sun / Purple と、文字用の濃い色 `-d`、背景用の淡い色 `-l`)、角丸、影、フォント、余白を集約している。
+- セクションの背景は `bg-white / bg-cream / bg-sky / bg-mint / bg-sun / bg-coral` を切り替えるだけで、波形の境目も自動でつく。
+- サブページは front matter(`en` `color` `heading` `lead`)と `<!--@head-->` で共通ヘッダーが出る。
+- アイコンは `{{icon:名前}}`(定義は `src/layout.html` の SVG スプライト)。
+- フォントは Google Fonts(Zen Maru Gothic / Noto Sans JP / Outfit)。プライバシーポリシーにも記載済み。
+
 ## アニメーション
-`src/assets/main.js` / `style.css`。OSの「視差効果を減らす」設定の人には自動で無効(`.anim` が付かない)。写真の流れる帯には停止ボタンあり。
+`src/assets/main.js` / `style.css`。フェードアップ、見出しの一文字表示、写真のゆっくりズーム、パララックス、流れる文字、浮遊する図形や光など。
+- ヘッダーの「動き」ボタンで、いつでも止められる(設定は端末に保存)。
+- OSの「視差効果を減らす」設定の人には、自動で無効(ボタンも非表示)。
 
 ## ロゴ・ファビコン
 元画像は `design/`(`logo-sheet.webp`=ロゴ一覧、`favicon-icon.webp`=ファビコン用)。差し替えるときは、画像を置き換えて `python tools/prep_logo.py`(Pillow が必要)を実行し、`node build.mjs`。横組み・縦組みロゴ、ファビコン各種、SNS共有画像(`og.png`)が再生成される。

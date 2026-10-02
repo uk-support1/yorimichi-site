@@ -82,6 +82,14 @@ function renderImg(key, cls = '', eager = '') {
   const load = eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"';
   return `<figure class="photo ${cls}"><img src="${a}-${p.w}.webp" srcset="${a}-${p.small}.webp ${p.small}w, ${a}-${p.w}.webp ${p.w}w" sizes="(max-width: 52rem) 100vw, 50vw" width="${p.w}" height="${p.h}" alt="${esc(p.alt)}" ${load}><figcaption>イメージ写真</figcaption></figure>`;
 }
+// {{pic:キー}} / {{pic:キー:eager}} : figureなしの<img>だけ(カード内などで使う)
+function renderPic(key, eager = '', sizes = '(max-width: 56rem) 100vw, 50vw') {
+  const p = photos[key];
+  if (!p) throw new Error('未定義の写真: ' + key);
+  const a = `${base}assets/img/${key}`;
+  const load = eager ? 'fetchpriority="high"' : 'loading="lazy" decoding="async"';
+  return `<img src="${a}-${p.w}.webp" srcset="${a}-${p.small}.webp ${p.small}w, ${a}-${p.w}.webp ${p.w}w" sizes="${sizes}" width="${p.w}" height="${p.h}" alt="${esc(p.alt)}" ${load}>`;
+}
 function renderCredits() {
   return `<ul class="src">${Object.values(photos).map((p) => `<li>${esc(p.alt)}:<a href="${p.url}">${esc(p.credit)}</a>(Unsplash)</li>`).join('')}</ul>`;
 }
@@ -102,6 +110,8 @@ function parsePage(src) {
 
 function fill(str) {
   return str
+    .replace(/\{\{icon:([\w-]+)\}\}/g, (_, n) => `<svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="#i-${n}"/></svg>`)
+    .replace(/\{\{pic:(\w+)(?::(eager))?\}\}/g, (_, k, e) => renderPic(k, e))
     .replace(/\{\{img:(\w+)(?::([\w -]*))?(?::(eager))?\}\}/g, (_, k, c, e) => renderImg(k, c, e))
     .replace(/<!--@(\S+?)-->/g, (_, k) => (blocks[k] ? blocks[k]() : `<!-- unknown block ${k} -->`))
     .replace(/\{\{\?([\w.]+)\}\}/g, (_, p) => { const v = get(p); return v ? esc(v) : pending; })
@@ -145,7 +155,10 @@ for (const f of pages) {
     .map(([s, label]) => `<li><a href="${base}${s}/"${meta.slug === s ? ' aria-current="page"' : ''}>${label}</a></li>`)
     .join('');
   const crumb = isHome ? '' : `<nav class="crumb" aria-label="パンくずリスト"><ol><li><a href="${base}">ホーム</a></li><li aria-current="page">${esc(meta.title)}</li></ol></nav>`;
-  const bodyHtml = fill(body);
+  // <!--@head--> : front matter の en / color / heading / lead からサブページ共通のヘッダーを作る
+  const spark = (c) => `<span class="spark ${c}"><svg viewBox="0 0 24 24"><use href="#i-spark"/></svg></span>`;
+  const headHtml = `<div class="page-head ph-${meta.color || 'blue'}" data-en="${meta.en || ''}"><div class="floaters" aria-hidden="true"><span class="fl-c fl-1"></span><span class="fl-c fl-2"></span>${spark('sp-2')}${spark('sp-3')}</div><div class="wrap"><span class="eyebrow ${{ blue: '', green: 'g', sun: 's', coral: 'c' }[meta.color || 'blue']}">${meta.en || ''}</span><h1 class="split-text">${meta.heading || meta.title}</h1>${meta.lead ? `<p class="lead">${meta.lead}</p>` : ''}</div></div>`;
+  const bodyHtml = fill(body.replace('<!--@head-->', headHtml));
   const html = fill(layout)
     .replaceAll('@@TITLE@@', esc(title))
     .replaceAll('@@DESC@@', esc(meta.description || site.description))
@@ -169,7 +182,7 @@ const nf = fill(layout)
   .replaceAll('@@DESC@@', 'ページが見つかりません')
   .replace('@@OGIMAGE@@', ogImage).replace('@@CANONICAL@@', '').replace('@@LD@@', '').replace('@@NAV@@', nav.map(([s, l]) => `<li><a href="${base}${s}/">${l}</a></li>`).join(''))
   .replace('@@CRUMB@@', '').replace('@@BODYCLASS@@', 'sub').replace('@@ROBOTS@@', '<meta name="robots" content="noindex">')
-  .replace('@@MAIN@@', () => `<div class="page-head"><div class="wrap"><h1>ページが見つかりませんでした</h1></div></div><div class="wrap prose section"><p>お探しのページは、移動したか、まだ準備中かもしれません。</p><p><a class="btn" href="${base}">ホームにもどる</a></p></div>`);
+  .replace('@@MAIN@@', () => `<div class="page-head ph-blue" data-en="404"><div class="wrap"><span class="eyebrow">NOT FOUND</span><h1>ページが見つかりませんでした</h1></div></div><section class="sec bg-white"><div class="wrap prose"><p>お探しのページは、移動したか、まだ準備中かもしれません。</p><p><a class="btn" href="${base}">ホームにもどる</a></p></div></section>`);
 writeFileSync(join(dist, '404.html'), nf);
 
 writeFileSync(join(dist, '.nojekyll'), '');

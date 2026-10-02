@@ -6,7 +6,7 @@
 <title>アクセシビリティについて|就労移行支援事業所「よりみち」</title>
 <meta name="description" content="就労移行支援事業所「よりみち」のホームページにおける、読みやすさ・使いやすさへの取り組みについて。">
 
-<meta name="theme-color" content="#2f6b5e">
+<meta name="theme-color" content="#46bdf3">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
 <meta property="og:site_name" content="就労移行支援事業所「よりみち」">
@@ -22,43 +22,68 @@
 <link rel="icon" href="/yorimichi-site/assets/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="icon" href="/yorimichi-site/assets/icon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="/yorimichi-site/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Outfit:wght@500;600;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap">
 <link rel="stylesheet" href="/yorimichi-site/assets/style.css">
-<script>document.documentElement.classList.add('js');try{var s=localStorage.getItem('ym-size');if(s)document.documentElement.dataset.size=s}catch(e){}</script>
+<script>document.documentElement.classList.add('js');try{var s=localStorage.getItem('ym-size');if(s)document.documentElement.dataset.size=s;if(localStorage.getItem('ym-motion')==='off')document.documentElement.dataset.motion='off'}catch(e){}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"就労移行支援事業所「よりみち」","alternateName":"よりみち","description":"就労移行支援事業所「よりみち」(開設準備中)。遠回りの経験を、自分を知り直し、自分に合う働き方を自分で選ぶ時間に。本人の主体性と「自分にもできる」という感覚を大切にする事業所です。","url":"https://uk-support1.github.io","logo":"https://uk-support1.github.io/yorimichi-site/assets/icon-512.png"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"よりみち","item":"https://uk-support1.github.io/yorimichi-site/"},{"@type":"ListItem","position":2,"name":"アクセシビリティについて","item":"https://uk-support1.github.io/yorimichi-site/accessibility/"}]}</script>
 </head>
 <body class="sub">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<style>.i{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}</style>
+<symbol id="i-spark" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+<symbol id="i-choose" viewBox="0 0 24 24"><path d="M12 21V11M12 11L6 5M12 11l6-6M6 5h4M6 5v4M18 5h-4M18 5v4"/></symbol>
+<symbol id="i-try" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z"/></symbol>
+<symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.7.6 1 1.3 1 2.1h5c0-.8.3-1.5 1-2.1A6 6 0 0 0 12 3z"/></symbol>
+<symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-8-4.6-8-10.2A4.3 4.3 0 0 1 12 7.5a4.3 4.3 0 0 1 8 2.3C20 15.4 12 20 12 20z"/></symbol>
+<symbol id="i-pc" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+<symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20l1-4L16 5l3 3L8 19zM14 7l3 3"/></symbol>
+<symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-5 4-7 8-7s7 2 8 7"/></symbol>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7M6 10v10h12V10"/></symbol>
+<symbol id="i-building" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M10 21v-4h4v4"/></symbol>
+<symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7zM15 3v4h4M10 12h6M10 16h6"/></symbol>
+<symbol id="i-loop" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 14-5.3M20 4v4h-4M20 12a8 8 0 0 1-14 5.3M4 20v-4h4"/></symbol>
+<symbol id="i-cam" viewBox="0 0 24 24"><rect x="3" y="7" width="13" height="10" rx="2"/><path d="M16 11l5-3v8l-5-3"/></symbol>
+<symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol>
+</defs></svg>
 <a class="skip" href="#main">本文へ移動</a>
 <header class="site-header">
   <div class="wrap header-inner">
     <a class="brand" href="/yorimichi-site/" aria-label="就労移行支援事業所「よりみち」 ホーム">
       <img class="brand-logo" src="/yorimichi-site/assets/img/logo-h.webp" width="900" height="339" alt="よりみち 就労移行支援事業所" fetchpriority="high">
     </a>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnav"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span>メニュー</span></button>
     <nav id="gnav" class="gnav" aria-label="メインメニュー">
       <ul><li><a href="/yorimichi-site/about/">考え方</a></li><li><a href="/yorimichi-site/support/">5つの道しるべ</a></li><li><a href="/yorimichi-site/programs/">試せること</a></li><li><a href="/yorimichi-site/fit/">ペースの整え方</a></li><li><a href="/yorimichi-site/system/">制度と利用の流れ</a></li><li><a href="/yorimichi-site/professionals/">関係者の方へ</a></li><li><a href="/yorimichi-site/info/">事業所情報</a></li></ul>
     </nav>
+    <div class="head-tools">
+      <a class="status-chip" href="/yorimichi-site/news/">開設準備中</a>
+      <button class="motion-btn" type="button" aria-pressed="false" title="画面の動きを止められます">動き:入</button>
+      <button class="menu-btn" type="button" aria-expanded="false" aria-controls="gnav"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span><span>メニュー</span></button>
+    </div>
   </div>
 </header>
 <nav class="crumb" aria-label="パンくずリスト"><ol><li><a href="/yorimichi-site/">ホーム</a></li><li aria-current="page">アクセシビリティについて</li></ol></nav>
 <main id="main" tabindex="-1">
-<div class="page-head"><div class="wrap">
-  <span class="eyebrow">アクセシビリティ</span>
-  <h1>このサイトの読みやすさについて</h1>
-</div></div>
-<section class="section"><div class="wrap prose">
-  <p>できるだけ多くの方が、自分に合った方法で読めるように、次のことに取り組んでいます。</p>
-  <ul>
-    <li>ページ下部のボタンで、文字を大きくできます。</li>
-    <li>キーボードだけでも、すべてのページを操作できます。</li>
-    <li>読み上げソフトで読みやすいように、見出しやメニューの構造を整えています。</li>
-    <li>文字と背景のコントラストを確保し、色だけに頼らない表示にしています。</li>
-    <li>画面の動きを控えたい設定(「視差効果を減らす」など)に対応しています。</li>
-    <li>専門用語は、なるべく使わず、使うときは説明を添えます。</li>
-  </ul>
-  <p>読みにくい点や、使いにくい点がありましたら、お知らせください。今後の改善に生かします。</p>
-  <p><span class="pending">準備中</span></p>
-</div></section>
+<div class="page-head ph-green" data-en="ACCESSIBILITY"><div class="floaters" aria-hidden="true"><span class="fl-c fl-1"></span><span class="fl-c fl-2"></span><span class="spark sp-2"><svg viewBox="0 0 24 24"><use href="#i-spark"/></svg></span><span class="spark sp-3"><svg viewBox="0 0 24 24"><use href="#i-spark"/></svg></span></div><div class="wrap"><span class="eyebrow g">ACCESSIBILITY</span><h1 class="split-text">このサイトの<br>読みやすさについて</h1></div></div>
+<section class="sec bg-white">
+  <div class="wrap prose">
+    <p>できるだけ多くの方が、自分に合った方法で読めるように、次のことに取り組んでいます。</p>
+    <ul>
+      <li>ページ下部のボタンで、文字を大きくできます。</li>
+      <li>ページ上部の「動き」ボタンで、画面の動き(アニメーション)を止められます。OSの「視差効果を減らす」設定にも対応しています。</li>
+      <li>キーボードだけでも、すべてのページを操作できます。</li>
+      <li>読み上げソフトで読みやすいように、見出しやメニューの構造を整えています。</li>
+      <li>文字と背景のコントラストを確保し、色だけに頼らない表示にしています。</li>
+      <li>専門用語は、なるべく使わず、使うときは説明を添えます。</li>
+    </ul>
+    <p>読みにくい点や、使いにくい点がありましたら、お知らせください。今後の改善に生かします。</p>
+    <p><span class="pending">準備中</span></p>
+  </div>
+</section>
 
 </main>
 <footer class="site-footer">
@@ -87,7 +112,7 @@
       </div>
     </nav>
   </div>
-  <p class="copy wrap">&copy; よりみち(開設準備中)</p>
+  <p class="copy wrap">&copy; よりみち(開設準備中) / このサイトの写真はすべてイメージです</p>
 </footer>
 <script src="/yorimichi-site/assets/main.js" defer></script>
 </body>

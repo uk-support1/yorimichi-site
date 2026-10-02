@@ -1,121 +1,161 @@
 ---
 slug: index
 title: ホーム
-description: 就労移行支援事業所「よりみち」(開設準備中)。休職や離職、遠回りの経験を、自分を知り直し、自分に合う働き方を自分で選ぶ時間に。「自分にもできる」という感覚を、日々の小さな経験から育てます。
+description: 就労移行支援事業所「よりみち」(開設準備中)。寄り道の時間は、自分を思い出す時間。休職や離職、遠回りの経験を、自分の可能性を試し、自分に合う働き方を自分で選ぶ時間に。
 ---
 <section class="hero">
+  <div class="floaters" aria-hidden="true">
+    <span class="fl-c fl-1"></span><span class="fl-c fl-2"></span><span class="fl-c fl-3"></span><span class="fl-c fl-4"></span>
+    <span class="spark sp-1"><svg viewBox="0 0 24 24"><use href="#i-spark"/></svg></span>
+    <span class="spark sp-2"><svg viewBox="0 0 24 24"><use href="#i-spark"/></svg></span>
+    <span class="spark sp-3"><svg viewBox="0 0 24 24"><use href="#i-spark"/></svg></span>
+    <span class="spark sp-4"><svg viewBox="0 0 24 24"><use href="#i-spark"/></svg></span>
+  </div>
   <div class="wrap hero-grid">
     <div>
-      <span class="badge">{{status}}</span>
-      <h1 class="split-text">寄り道の時間は、<br><em>自分を思い出す</em>時間。</h1>
-      <p class="lead">休職、離職、ブランク、思うようにいかなかった働き方。その経験は、失敗ではなく、これからの働き方を自分で選ぶための材料です。就労移行支援事業所「よりみち」は、その時間に一緒に立ち会う場所をつくっています。</p>
+      <span class="hero-badge"><i></i>{{status}}</span>
+      <h1 class="split-text"><span class="nw">寄り道の時間は、</span><br><span class="nw"><em>自分を思い出す</em>時間。</span></h1>
+      <p class="lead">休職、離職、ブランク、思うようにいかなかった働き方。その経験は、失敗ではなく、これからの働き方を自分で選ぶための材料です。就労移行支援事業所「よりみち」は、自分の可能性を試し、確かめ、選んでいく場所を、いま準備しています。</p>
+      <ul class="hero-keys" aria-label="よりみちのキーワード"><li>選ぶ</li><li>試す</li><li>つくる</li><li>経験する</li><li>発見する</li></ul>
       <div class="btn-row">
         <a class="btn" href="{{base}}about/">よりみちの考え方を読む</a>
-        <a class="btn ghost" href="{{base}}system/">制度と利用の流れを知る</a>
+        <a class="btn ghost" href="{{base}}system/">制度と利用の流れ</a>
       </div>
       <p class="note-small" style="margin-top:1.2rem">見学や相談の受付は、準備が整い次第お知らせします。</p>
     </div>
-    <div class="hero-art">
-      {{img:hero:hero-photo:eager}}
-      <svg class="hero-trail" viewBox="0 0 120 120" aria-hidden="true"><circle cx="16" cy="104" r="7" fill="#f2b45b"/><path d="M16 104C40 100 20 70 50 62s10-40 54-46" fill="none" stroke="#2f6b5e" stroke-width="3" stroke-linecap="round" stroke-dasharray="0.1 8"/></svg>
+    <div class="collage">
+      <figure class="ph c1 zoom">{{pic:smile:eager}}</figure>
+      <figure class="ph c2 zoom">{{pic:group:eager}}</figure>
+      <figure class="ph c3 zoom">{{pic:pair:eager}}</figure>
+      <span class="sticker s-a"><span class="ic">{{icon:check}}</span>自分で選べた</span>
+      <span class="sticker s-b"><span class="ic">{{icon:try}}</span>やってみた</span>
+      <span class="sticker s-c"><span class="ic">{{icon:bulb}}</span>工夫できた</span>
     </div>
   </div>
 </section>
+<div class="ticker" aria-hidden="true"><div class="ticker-track">
+  <span>選ぶ</span><span>試す</span><span>つくる</span><span>経験する</span><span>発見する</span><span>自分で決める</span>
+  <span>選ぶ</span><span>試す</span><span>つくる</span><span>経験する</span><span>発見する</span><span>自分で決める</span>
+</div></div>
 
-<section class="section">
-  <div class="wrap">
-    <span class="eyebrow">「よりみち」という名前</span>
-    <h2 class="h2">遠回りは、迷子ではありません。</h2>
-    <div class="grid c3">
-      <div class="card reveal"><h3>経験は、材料になる</h3><p>うまくいかなかった職場、休んだ時間、家で過ごした日々。そこには「自分に合うこと・合わないこと」の手がかりが詰まっています。</p></div>
-      <div class="card reveal" style="--d:.1s"><h3>正解は、支援者が決めない</h3><p>進路も働き方も、決めるのはあなたです。私たちは選択肢を増やし、あなたと環境の間を調整する役割を担います。</p></div>
-      <div class="card reveal" style="--d:.2s"><h3>就職だけがゴールではない</h3><p>自分に合う働き方を知り、必要な助けを求められること。それが、働き続けるための土台になると考えています。</p></div>
+<section class="sec bg-white flat">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow reveal">DETOUR</span>
+      <h2 class="sec-title reveal">遠回りは、<br><span class="hl">迷子ではありません。</span></h2>
+      <p class="lead reveal">うまくいかなかった職場、休んだ時間、家で過ごした日々。そこには「自分に合うこと・合わないこと」の手がかりが詰まっています。よりみちは、その経験を材料にして、次の一歩を自分で選べるようにする場所です。</p>
     </div>
+    <div class="photo-col reveal right">
+      <figure class="photo r43 blob zoom" style="box-shadow:var(--shadow-l)">{{pic:path}}<figcaption>イメージ写真</figcaption></figure>
+    </div>
+  </div>
+  <div class="wrap grid g3" style="margin-top:3.5rem">
+    <div class="card t-blue reveal"><div class="ic">{{icon:bulb}}</div><h3>経験は、材料になる</h3><p>つまずいた経験は、自分を知るための情報です。何が合って、何が合わなかったのか。そこから、次の選択肢が見えてきます。</p></div>
+    <div class="card t-green reveal" style="--d:.1s"><div class="ic">{{icon:choose}}</div><h3>正解は、支援者が決めない</h3><p>進路も働き方も、決めるのはあなたです。私たちは選択肢を増やし、あなたと環境の間を調整する役割を担います。</p></div>
+    <div class="card t-coral reveal" style="--d:.2s"><div class="ic">{{icon:flag}}</div><h3>就職だけがゴールではない</h3><p>自分に合う働き方を知り、必要な助けを求められること。それが、働き続けるための土台になると考えています。</p></div>
+  </div>
+</section>
+
+<section class="sec bg-sky">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow reveal">WORK LAB</span>
+      <h2 class="sec-title reveal">試して、つくって、<br><span class="hl b">自分に合う働き方</span>を見つける。</h2>
+      <p class="lead reveal">できないことを補う場所ではなく、できることを発見する場所へ。パソコンを使ったものづくりや、仲間とのプロジェクト、仕事の体験を通して、自分に合う進め方や環境を、実際に試しながら見つけていくことを想定しています。</p>
+    </div>
+    <div class="mosaic" style="margin-top:3rem">
+      <figure class="photo m1 reveal left zoom">{{pic:group}}<figcaption>イメージ写真</figcaption></figure>
+      <figure class="photo m2 reveal right zoom">{{pic:sticky}}<figcaption>イメージ写真</figcaption></figure>
+      <figure class="photo m3 reveal right zoom">{{pic:board}}<figcaption>イメージ写真</figcaption></figure>
+      <figure class="photo m4 reveal left zoom">{{pic:design}}<figcaption>イメージ写真</figcaption></figure>
+    </div>
+    <ul class="chips center reveal" aria-label="構想中の取り組みの例">
+      <li>パソコン・Officeの基礎</li><li>動画づくり</li><li>Web・デザイン</li><li>AIなどITツールの活用</li><li>資料づくり・プレゼン</li><li>仲間とのプロジェクト</li><li>仕事の体験</li>
+    </ul>
+    <p class="note-small center" style="margin-top:1rem">※上記は構想中の例です。実際に行う内容は、決まり次第お知らせします。</p>
+    <div class="btn-row" style="justify-content:center"><a class="btn blue" href="{{base}}programs/">試せることを見る</a></div>
+  </div>
+</section>
+
+<section class="sec bg-sun">
+  <div class="wrap">
+    <span class="eyebrow s reveal">SELF EFFICACY</span>
+    <h2 class="sec-title reveal">「自分にもできる」を、<br><span class="hl c">少しずつ。</span></h2>
+    <p class="lead reveal">「自分にもできる」という感覚は、大きな成功より、日々の小さな経験から育つと私たちは考えています。よりみちでは、こんなことも、ちゃんと「できた」として数えます。</p>
+    <ol class="wins">
+      <li class="win w1 reveal"><span class="ic">{{icon:choose}}</span><span class="no">01</span><span class="t">自分で選べた</span></li>
+      <li class="win w2 reveal" style="--d:.08s"><span class="ic">{{icon:try}}</span><span class="no">02</span><span class="t">やってみた</span></li>
+      <li class="win w3 reveal" style="--d:.16s"><span class="ic">{{icon:bulb}}</span><span class="no">03</span><span class="t">工夫できた</span></li>
+      <li class="win w4 reveal" style="--d:.24s"><span class="ic">{{icon:chat}}</span><span class="no">04</span><span class="t">相談できた</span></li>
+      <li class="win w5 reveal" style="--d:.32s"><span class="ic">{{icon:heart}}</span><span class="no">05</span><span class="t">人の役に立てた</span></li>
+    </ol>
+    <ul class="chips reveal"><li>休憩を選べた</li><li>助けを求められた</li><li>やめると決めた</li><li>作品が完成した</li></ul>
+  </div>
+</section>
+
+<section class="sec bg-cream">
+  <div class="wrap">
+    <div class="center">
+      <span class="eyebrow reveal">5 SIGNPOSTS</span>
+      <h2 class="sec-title reveal">5つの道しるべ。<br><span class="hl g">順番は、ありません。</span></h2>
+      <p class="lead reveal">よりみちの支援は、5つの道しるべでできています。固定の順番や期間はなく、体調や気持ち、希望に合わせて、行ったり来たりしながら進みます。</p>
+    </div>
+    <div class="curri">
+      <article class="step b reveal"><div class="ph">{{pic:pair}}<span class="no">01</span></div><div class="body"><span class="en">Understand</span><h3>安心と自己理解</h3><p>安心できる場と関係をつくり、自分の状態・特性・強み・大切にしたいことを、自分のペースで知っていく。</p></div></article>
+      <article class="step g reveal" style="--d:.1s"><div class="ph">{{pic:hands}}<span class="no">02</span></div><div class="body"><span class="en">First step</span><h3>小さな一歩</h3><p>自分で選んだ小さな行動を試し、「やってみた」「できた」を積み重ねる。</p></div></article>
+      <article class="step s reveal"><div class="ph">{{pic:group}}<span class="no">03</span></div><div class="body"><span class="en">Practice</span><h3>役割と実践</h3><p>模擬就労や役割の経験を通して、工夫や学びを手に入れる。</p></div></article>
+      <article class="step c reveal" style="--d:.1s"><div class="ph">{{pic:desk}}<span class="no">04</span></div><div class="body"><span class="en">Choose</span><h3>自分らしい進路</h3><p>自分に合う仕事・働き方・必要な配慮を整理し、企業実習や就職活動へ。</p></div></article>
+      <article class="step p reveal" style="--d:.2s"><div class="ph">{{pic:board}}<span class="no">05</span></div><div class="body"><span class="en">Stay connected</span><h3>働き続けるための伴走</h3><p>困ったときの対処と、助けを求める力を育て、就職後も続く関係を持つ。</p></div></article>
+    </div>
+    <p class="loop-note reveal">{{icon:loop}}戻ってもいい。立ち止まってもいい。行き来しながら進みます。</p>
+    <div class="btn-row" style="justify-content:center"><a class="btn blue" href="{{base}}support/">5つの道しるべを詳しく見る</a></div>
   </div>
 </section>
 
 <section class="band" aria-label="よりみちのことば">
-  <div class="band-bg" data-parallax><img src="{{base}}assets/img/path-1400.webp" srcset="{{base}}assets/img/path-700.webp 700w, {{base}}assets/img/path-1400.webp 1400w" sizes="100vw" width="1400" height="933" alt="" loading="lazy" decoding="async"></div>
-  <div class="band-inner wrap"><p class="band-quote reveal">寄り道の先に、<br>自分で選んだ道がある。</p><p class="band-cap">イメージ写真</p></div>
+  <div class="band-bg" data-parallax>{{pic:path}}</div>
+  <div class="wrap"><p class="band-quote reveal">寄り道の先に、<br><span class="hl">自分で選んだ道</span>がある。</p></div>
+  <p class="band-cap">イメージ写真</p>
 </section>
 
-<section class="section tint">
-  <div class="wrap split">
-    <div>
-      <span class="eyebrow">「できた」の数え方</span>
-      <h2 class="h2">小さな「できた」を、ちゃんと数える。</h2>
-      <p class="lead" style="max-width:none">「自分にもできる」という感覚は、大きな成功より、日々の小さな経験から育つと私たちは考えています。よりみちでは、こんなことも「できた」として大切にします。</p>
-    </div>
-    <div>
-      {{img:notes:photo-wide}}
-      <ul class="chips">
-        <li>自分で選べた</li><li>やってみた</li><li>工夫できた</li><li>休憩を選べた</li><li>相談できた</li><li>助けを求められた</li><li>人の役に立てた</li><li>やめると決めた</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="section">
+<section class="sec bg-mint">
   <div class="wrap">
-    <span class="eyebrow">5つの道しるべ</span>
-    <h2 class="h2">順番は決めません。行き来しながら進みます。</h2>
-    <p class="lead">よりみちの支援は、次の5つの道しるべでできています。固定の順番や期間はありません。体調や気持ちに合わせて、戻ってもいいし、立ち止まってもいい。</p>
-    <ol class="path" data-path>
-      <li><h3>安心と自己理解</h3><p>安心できる場と関係をつくり、自分の状態・特性・強み・大切にしたいことを知っていく。</p></li>
-      <li><h3>小さな一歩</h3><p>自分で選んだ小さな行動を試し、「やってみた」「できた」を積み重ねる。</p></li>
-      <li><h3>役割と実践</h3><p>模擬就労や役割の経験を通して、工夫や学びを手に入れる。</p></li>
-      <li><h3>自分らしい進路</h3><p>自分に合う仕事・働き方・必要な配慮を整理し、企業実習や就職活動へ。</p></li>
-      <li><h3>働き続けるための伴走</h3><p>困ったときの対処と、助けを求める力を育て、就職後も続く関係を持つ。</p></li>
-    </ol>
-    <div class="btn-row"><a class="btn ghost" href="{{base}}support/">5つの道しるべを詳しく見る</a></div>
-  </div>
-</section>
-
-<section class="section marquee-sec" aria-label="イメージ写真">
-  <div class="wrap"><span class="eyebrow">試して、確かめて、選ぶ</span><h2 class="h2">日々は、こんな時間でできています。</h2></div>
-  <div class="marquee" data-marquee>
-    <ul class="marquee-track">
-      <li>{{img:desk:m}}</li><li>{{img:sprout:m}}</li><li>{{img:work:m}}</li><li>{{img:talk:m}}</li><li>{{img:notes:m}}</li><li>{{img:team:m}}</li>
-    </ul>
-  </div>
-  <div class="wrap"><button class="marquee-btn" type="button" aria-pressed="false">動きを止める</button><p class="note-small">写真はすべてイメージです。実際の事業所・利用者・職員ではありません。</p></div>
-</section>
-
-<section class="section sand">
-  <div class="wrap">
-    <span class="eyebrow">私たちがしないこと</span>
-    <h2 class="h2">お約束していること、できないこと。</h2>
-    <ul class="pledge reveal-list">
-      <li><strong>進路を代わりに決めません</strong>あなたの希望を起点に、一緒に整理します。</li>
-      <li><strong>結果は保証しません</strong>就職や定着を約束することはできません。約束するのは、力を尽くして伴走することです。</li>
-      <li><strong>体調の波を、努力不足にしません</strong>調子が悪い日は失敗ではなく、調整のヒントです。</li>
-      <li><strong>自己開示や発表を強制しません</strong>振り返りの方法は、複数から選べるようにします。</li>
-      <li><strong>誰かと比べません</strong>学び合いは大切にしますが、比較や競争にはしません。</li>
+    <span class="eyebrow g reveal">OUR PROMISES</span>
+    <h2 class="sec-title reveal">お約束していること、<br><span class="hl g">できないこと。</span></h2>
+    <ul class="promise">
+      <li class="reveal"><strong>進路を代わりに決めません</strong><span>あなたの希望を起点に、一緒に整理します。</span></li>
+      <li class="reveal" style="--d:.08s"><strong>結果は保証しません</strong><span>就職や定着を約束することはできません。約束するのは、力を尽くして伴走することです。</span></li>
+      <li class="reveal" style="--d:.16s"><strong>体調の波を、努力不足にしません</strong><span>調子が悪い日は失敗ではなく、調整のヒントです。</span></li>
+      <li class="reveal" style="--d:.24s"><strong>自己開示や発表を強制しません</strong><span>振り返りの方法は、複数から選べるようにします。</span></li>
+      <li class="reveal" style="--d:.32s"><strong>誰かと比べません</strong><span>学び合いは大切にしますが、比較や競争にはしません。</span></li>
     </ul>
   </div>
 </section>
 
-<section class="section">
+<section class="sec bg-white">
   <div class="wrap">
-    <span class="eyebrow">あなたに合わせて読む</span>
-    <h2 class="h2">どなたの立場でも、考え方が分かるように。</h2>
-    <div class="audience">
-      <a class="card link" href="{{base}}about/"><h3>ご本人へ</h3><p>よりみちで過ごすと、どんな経験ができるのか。</p><span class="more">考え方と試せること</span></a>
-      <a class="card link" href="{{base}}professionals/"><h3>ご家族・支援機関・医療機関・行政の方へ</h3><p>支援の考え方と、連携についての基本姿勢。</p><span class="more">関係者の方へ</span></a>
-      <a class="card link" href="{{base}}professionals/#company"><h3>企業の方へ</h3><p>職場実習や配慮の整理について。</p><span class="more">企業の方へ</span></a>
-      <a class="card link" href="{{base}}system/"><h3>制度が知りたい方へ</h3><p>対象、期間、利用料、手続きの流れ。</p><span class="more">制度と利用の流れ</span></a>
+    <div class="center">
+      <span class="eyebrow reveal">FOR YOU</span>
+      <h2 class="sec-title reveal">あなたの立場で、<span class="hl b">読む。</span></h2>
+      <p class="lead reveal">どなたの立場でも、よりみちの考え方が分かるようにまとめています。</p>
+    </div>
+    <div class="grid g2" style="margin-top:3rem">
+      <a class="card link t-blue reveal" href="{{base}}about/"><div class="ic">{{icon:user}}</div><h3>ご本人へ</h3><p>よりみちで過ごすと、どんな経験ができるのか。</p><span class="more">考え方と試せること</span></a>
+      <a class="card link t-green reveal" href="{{base}}professionals/" style="--d:.08s"><div class="ic">{{icon:home}}</div><h3>ご家族・支援機関・医療機関・行政の方へ</h3><p>支援の考え方と、連携についての基本姿勢。</p><span class="more">関係者の方へ</span></a>
+      <a class="card link t-coral reveal" href="{{base}}professionals/#company"><div class="ic">{{icon:building}}</div><h3>企業の方へ</h3><p>職場実習や配慮の整理について。</p><span class="more">企業の方へ</span></a>
+      <a class="card link t-sun reveal" href="{{base}}system/" style="--d:.08s"><div class="ic">{{icon:doc}}</div><h3>制度が知りたい方へ</h3><p>対象、期間、利用料、手続きの流れ。</p><span class="more">制度と利用の流れ</span></a>
     </div>
   </div>
 </section>
 
-<section class="section tint">
+<section class="sec bg-cream">
   <div class="wrap">
-    <span class="eyebrow">開設準備中です</span>
-    <h2 class="h2">決まったことから、順にお知らせします。</h2>
-    <p class="lead">所在地、開所日、利用時間、見学の受付、職員体制などは、まだ確定していません。決まり次第「事業所情報」と「お知らせ」に掲載します。</p>
-    <div class="grid c2" style="margin-top:1.6rem">
-      <div class="card"><h3>最新のお知らせ</h3><!--@news-latest--><a class="more" href="{{base}}news/">お知らせ一覧へ</a></div>
-      <div class="card"><h3>いまできること</h3><p>お住まいの市区町村の障害福祉窓口や相談支援事業所では、就労移行支援について相談できます。制度の概要は「制度と利用の流れ」にまとめています。</p><a class="more" href="{{base}}system/">制度と利用の流れへ</a></div>
+    <span class="eyebrow c reveal">COMING SOON</span>
+    <h2 class="sec-title reveal">開設準備中です。<br><span class="hl">決まったことから、順に。</span></h2>
+    <p class="lead reveal">所在地、開所日、利用時間、見学の受付、職員体制などは、まだ確定していません。決まり次第「事業所情報」と「お知らせ」に掲載します。</p>
+    <div class="grid g2" style="margin-top:2.4rem">
+      <div class="card t-blue news-card reveal"><h3 style="margin-bottom:.4rem">最新のお知らせ</h3><!--@news-latest--><a class="more" href="{{base}}news/">お知らせ一覧へ</a></div>
+      <div class="card t-green reveal" style="--d:.1s"><h3>いまできること</h3><p>お住まいの市区町村の障害福祉窓口や相談支援事業所では、就労移行支援について相談できます。制度の概要は「制度と利用の流れ」にまとめています。</p><a class="more" href="{{base}}system/">制度と利用の流れへ</a></div>
     </div>
   </div>
 </section>
